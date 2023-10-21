@@ -13,7 +13,7 @@ ___
 
 ___
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=lagggpixel&show_icons=true&locale=en" alt="lagggpixel" /></p>
+<br><p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=lagggpixel&show_icons=true&locale=en" alt="lagggpixel" /></p>
 
 ___
 
