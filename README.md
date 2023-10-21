@@ -10,11 +10,12 @@ ___
 ___
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=lagggpixel&" alt="lagggpixel" /></p>
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=lagggpixel&show_icons=true&locale=en&layout=compact" alt="lagggpixel" /></p>
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=lagggpixel&show_icons=true&locale=en" alt="lagggpixel" /></p>
 
 ___
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=lagggpixel&show_icons=true&locale=en" alt="lagggpixel" /></p>
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=lagggpixel&show_icons=true&locale=en&layout=compact" alt="lagggpixel" /></p>
+
 
 ___
 
