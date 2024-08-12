@@ -1,5 +1,4 @@
-<h1 align="center">Hi 👋, I'm Reid/Wanbin/Lagggpixel</h1>
-<h2 align="center">I do development work</h2>
+<h1 align="center">Hi 👋, I'm Reid/Wanbin</h1>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=lagggpixel&theme=darkhub" alt="lagggpixel" /></a> </p>
 
