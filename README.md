@@ -4,10 +4,6 @@
 
 ___
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=lagggpixel&theme=onedark" alt="lagggpixel" /></p>
-
-___
-
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=lagggpixel&show_icons=true&locale=en&theme=onedark" alt="lagggpixel" /></p>
 
 ___
@@ -22,7 +18,11 @@ ___
   
 ___
 
-[![WakaTime stats](https://github-readme-stats.vercel.app/api/wakatime?username=Lagggpixel&theme=onedark&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+![WakaTime stats 1](https://wakatime.com/share/@Lagggpixel/22f1eb29-cdab-488c-8fab-4012980b4147.svg)
+
+___  
+
+![WakaTime Stats 2](https://wakatime.com/share/@Lagggpixel/9d7d57bf-a721-48ad-8071-4e6659a15f2b.svg)
 
 ___  
 
