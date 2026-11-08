@@ -34,8 +34,10 @@
 ## ⌨️ Coding Activity
 
 <p align="center">
-  <img src="https://wakatime.com/share/@Lagggpixel/22f1eb29-cdab-488c-8fab-4012980b4147.svg" alt="WakaTime coding activity" width="49%" />
-  <img src="https://wakatime.com/share/@Lagggpixel/9d7d57bf-a721-48ad-8071-4e6659a15f2b.svg" alt="WakaTime languages" width="49%" />
+  <img src="https://wakatime.com/share/@Lagggpixel/22f1eb29-cdab-488c-8fab-4012980b4147.svg" alt="WakaTime coding activity" width="100%" />
+</p>
+<p align="center">
+  <img src="https://wakatime.com/share/@Lagggpixel/9d7d57bf-a721-48ad-8071-4e6659a15f2b.svg" alt="WakaTime languages" width="70%" />
 </p>
 
 <p align="center">
