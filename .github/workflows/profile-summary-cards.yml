@@ -7,7 +7,6 @@ on:
     - cron: "0 0 * * *" # once a day at 00:00 UTC
   workflow_dispatch:
   push:
-    branches: [main]
     paths:
       - .github/workflows/profile-summary-cards.yml
 
@@ -45,5 +44,5 @@ jobs:
             echo "Cards unchanged"
           else
             git commit -m "Update profile summary cards"
-            git push
+            git push origin HEAD:${{ github.ref_name }}
           fi
