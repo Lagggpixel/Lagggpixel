@@ -1,7 +1,8 @@
 name: Profile summary cards
 
-# Generates the stats cards shown in README.md and commits them to this repo,
-# so the profile no longer depends on rate-limited public Vercel instances.
+# Generates the stats cards and contribution snake shown in README.md and
+# commits them to this repo, so the profile doesn't depend on rate-limited
+# public Vercel instances.
 on:
   schedule:
     - cron: "0 0 * * *" # once a day at 00:00 UTC
@@ -17,29 +18,57 @@ concurrency:
   group: profile-summary-cards
   cancel-in-progress: true
 
+env:
+  # Add a SUMMARY_GITHUB_TOKEN secret (classic PAT, read:user + repo) to
+  # include private contributions; otherwise the built-in token is used.
+  GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate cards
+      # The action wipes its output folder on every run, so generate the dark
+      # theme first and set it aside before generating the light theme.
+      - name: Generate dark cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
-        env:
-          # Add a SUMMARY_GITHUB_TOKEN secret (classic PAT, read:user + repo) to
-          # include private contributions; otherwise the built-in token is used.
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
           THEME: github_dark
           TIME_ZONE: Europe/London # handles GMT/BST switch automatically
           AUTO_PUSH: false
 
+      - name: Set dark cards aside
+        run: sudo mv profile-summary-card-output/github_dark "$RUNNER_TEMP/github_dark"
+
+      - name: Generate light cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          THEME: github
+          TIME_ZONE: Europe/London
+          AUTO_PUSH: false
+
+      - name: Restore dark cards
+        run: |
+          sudo mv "$RUNNER_TEMP/github_dark" profile-summary-card-output/github_dark
+          sudo chown -R "$(id -u):$(id -g)" profile-summary-card-output
+
+      - name: Generate contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ env.GITHUB_TOKEN }}
+          outputs: |
+            assets/generated/snake-light.svg?palette=github-light
+            assets/generated/snake-dark.svg?palette=github-dark
+
       - name: Commit updated cards
         run: |
           git config user.name "Lagggpixel"
           git config user.email "lagggpixel@gmail.com"
-          git add profile-summary-card-output
+          git add profile-summary-card-output assets/generated
           if git diff --cached --quiet; then
             echo "Cards unchanged"
           else
