@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Hi, I'm Reid / Wanbin">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="name" x1="0" x2="1">
+      <stop offset="0" stop-color="#58a6ff"/>
+      <stop offset="0.5" stop-color="#bc8cff"/>
+      <stop offset="1" stop-color="#ff7b72"/>
+    </linearGradient>
+    <linearGradient id="wave1" x1="0" x2="1">
+      <stop offset="0" stop-color="#1f6feb" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#8957e5" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="wave2" x1="0" x2="1">
+      <stop offset="0" stop-color="#8957e5" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#da3633" stop-opacity="0.35"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#58a6ff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="frame"><rect width="1200" height="320" rx="18"/></clipPath>
+    <style>
+      .title { font: 700 64px 'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif; }
+      .sub { font: 500 24px 'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif; fill: #c9d1d9; }
+      .mono { font: 500 20px 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; fill: #8b949e; }
+      .fade { opacity: 0; animation: fade 0.9s ease-out forwards; }
+      .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.45s; } .d3 { animation-delay: 0.8s; }
+      @keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+      .w1 { animation: drift 9s ease-in-out infinite alternate; }
+      .w2 { animation: drift 12s ease-in-out infinite alternate-reverse; }
+      @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-120px); } }
+      .cursor { animation: blink 1s steps(1) infinite; }
+      @keyframes blink { 50% { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .fade, .w1, .w2, .cursor { animation: none; opacity: 1; } }
+    </style>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="320" fill="url(#bg)"/>
+    <circle cx="980" cy="60" r="260" fill="url(#glow)"/>
+    <circle cx="160" cy="300" r="220" fill="url(#glow)"/>
+    <path class="w2" fill="url(#wave2)" d="M0 250 C 150 210 300 290 450 255 S 750 205 900 250 S 1200 290 1350 245 L 1350 320 L 0 320 Z"/>
+    <path class="w1" fill="url(#wave1)" d="M0 275 C 170 240 330 305 500 272 S 820 235 980 275 S 1220 300 1350 268 L 1350 320 L 0 320 Z"/>
+  </g>
+  <g text-anchor="middle">
+    <text class="mono fade d1" x="600" y="88">~/lagggpixel $ whoami</text>
+    <text class="title fade d2" x="600" y="160" fill="url(#name)">Hi, I'm Reid / Wanbin 👋</text>
+    <text class="sub fade d3" x="600" y="205">A passionate developer</text>
+    <text class="mono fade d3" x="600" y="242">Java · Python · C++ · JavaScript · TypeScript<tspan class="cursor" fill="#58a6ff"> ▌</tspan></text>
+  </g>
+</svg>
