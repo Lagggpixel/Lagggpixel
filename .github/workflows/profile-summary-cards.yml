@@ -32,7 +32,7 @@ jobs:
         with:
           USERNAME: ${{ github.repository_owner }}
           THEME: github_dark
-          UTC_OFFSET: 8
+          TIME_ZONE: Europe/London # handles GMT/BST switch automatically
           AUTO_PUSH: false
 
       - name: Commit updated cards
