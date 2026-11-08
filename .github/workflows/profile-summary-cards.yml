@@ -1,0 +1,49 @@
+name: Profile summary cards
+
+# Generates the stats cards shown in README.md and commits them to this repo,
+# so the profile no longer depends on rate-limited public Vercel instances.
+on:
+  schedule:
+    - cron: "0 0 * * *" # once a day at 00:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/profile-summary-cards.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-summary-cards
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          # Add a SUMMARY_GITHUB_TOKEN secret (classic PAT, read:user + repo) to
+          # include private contributions; otherwise the built-in token is used.
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          THEME: github_dark
+          UTC_OFFSET: 8
+          AUTO_PUSH: false
+
+      - name: Commit updated cards
+        run: |
+          git config user.name "Lagggpixel"
+          git config user.email "lagggpixel@gmail.com"
+          git add profile-summary-card-output
+          if git diff --cached --quiet; then
+            echo "Cards unchanged"
+          else
+            git commit -m "Update profile summary cards"
+            git push
+          fi
